@@ -3,3 +3,6 @@ services:
     image: nginx:latest
     ports:
       - 80:80
+    volumes:
+      - ./data/nginx:/etc/nginx
+      - ./cert:/cert
