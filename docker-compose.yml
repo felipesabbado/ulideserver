@@ -2,17 +2,20 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
-    restart: unless-stopped
+    restart: always
     ports:
       - 80:80
       - 443:443
     volumes:
       - ./nginx:/etc/nginx
       - ./cert:/cert
+    links:
+      - webserver1
+      - webserver2
 
   webserver1:
     container_name: webserver1
-    restart: unless-stopped
+    restart: always
     image: php:apache
     ports:
       - 81:80
@@ -21,7 +24,7 @@ services:
 
   webserver2:
     container_name: webserver2
-    restart: unless-stopped
+    restart: always
     image: php:apache
     ports:
       - 82:80
