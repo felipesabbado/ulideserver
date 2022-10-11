@@ -1,6 +1,8 @@
 services:
   nginx:
     image: nginx:latest
+    container_name: nginx
+    restart: unless-stopped
     ports:
       - 80:80
       - 443:443
@@ -8,16 +10,20 @@ services:
       - ./nginx:/etc/nginx
       - ./cert:/cert
 
-    webserver1:
-      image: php:apache
-      ports:
-        - 81:80
-      volumes:
-        - ../ulideserver:/var/www/html
+  webserver1:
+    container_name: webserver1
+    restart: unless-stopped
+    image: php:apache
+    ports:
+      - 81:80
+    volumes:
+      - ../ulideserver:/var/www/html
 
-    webserver2:
-      image: php:apache
-      ports:
-        - 82:80
-      volumes:
-        - ../ulideserver:/var/www/html
+  webserver2:
+    container_name: webserver2
+    restart: unless-stopped
+    image: php:apache
+    ports:
+      - 82:80
+    volumes:
+      - ../ulideserver:/var/www/html
