@@ -7,3 +7,17 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./cert:/cert
+
+    webserver1:
+      image: php:apache
+      ports:
+        - 81:80
+      volumes:
+        - ../ulideserver:/var/www/html
+
+    webserver2:
+      image: php:apache
+      ports:
+        - 82:80
+      volumes:
+        - ../ulideserver:/var/www/html
