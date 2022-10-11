@@ -9,8 +9,6 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./cert:/cert
-    networks:
-      - ulideserver_default
 
   webserver1:
     container_name: webserver1
@@ -20,8 +18,6 @@ services:
       - 81:80
     volumes:
       - /home/felipe/ulideparty:/var/www/html
-    networks:
-      - ulideserver_default
 
   webserver2:
     container_name: webserver2
@@ -31,5 +27,3 @@ services:
       - 82:80
     volumes:
       - /home/felipe/ulideparty:/var/www/html
-    networks:
-      - ulideserver_default
