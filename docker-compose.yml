@@ -9,9 +9,7 @@ services:
     volumes:
       - ./nginx:/etc/nginx
       - ./cert:/cert
-    links:
-      - webserver1
-      - webserver2
+      - ./php:/usr/share/nginx/html
 
   webserver1:
     container_name: webserver1
@@ -19,8 +17,9 @@ services:
     image: php:apache
     ports:
       - 81:80
+    working_dir: /var/www
     volumes:
-      - /home/felipe/ulideparty:/var/www/html
+      - /home/felipe/ulideparty:/var/www
 
   webserver2:
     container_name: webserver2
@@ -28,5 +27,6 @@ services:
     image: php:apache
     ports:
       - 82:80
+    working_dir: /var/www
     volumes:
-      - /home/felipe/ulideparty:/var/www/html
+      - /home/felipe/ulideparty:/var/www
