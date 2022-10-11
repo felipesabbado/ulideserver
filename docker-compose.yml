@@ -17,7 +17,7 @@ services:
     ports:
       - 81:80
     volumes:
-      - ../ulideserver:/var/www/html
+      - .../ulideserver:/var/www/html
 
   webserver2:
     container_name: webserver2
@@ -26,4 +26,4 @@ services:
     ports:
       - 82:80
     volumes:
-      - ../ulideserver:/var/www/html
+      - .../ulideserver:/var/www/html
