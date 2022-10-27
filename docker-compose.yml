@@ -1,32 +1,11 @@
+version: "3.9"
 services:
   nginx:
-    image: nginx:latest
+    image: nginx:1.23.2-alpine
     container_name: nginx
     restart: always
     ports:
       - 80:80
       - 443:443
     volumes:
-      - ./nginx:/etc/nginx
-      - ./cert:/cert
       - ./php:/usr/share/nginx/html
-
-  webserver1:
-    container_name: webserver1
-    restart: always
-    image: php:apache
-    ports:
-      - 81:80
-    working_dir: /var/www
-    volumes:
-      - /home/felipe/ulideparty:/var/www
-
-  webserver2:
-    container_name: webserver2
-    restart: always
-    image: php:apache
-    ports:
-      - 82:80
-    working_dir: /var/www
-    volumes:
-      - /home/felipe/ulideparty:/var/www
