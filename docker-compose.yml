@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:80"
       - "443:443"
-    working_dir: /var/www
+    working_dir: /var/www/html
     volumes:
-      - ./php:/var/www
+      - ./html:/var/www/html
       - ./nginx/conf:/etc/nginx/conf.d
